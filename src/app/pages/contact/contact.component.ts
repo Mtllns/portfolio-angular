@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoPaginaService } from '../../services/info-pagina.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor( public infoPag: InfoPaginaService ) { }
 
   ngOnInit(): void {
   }
