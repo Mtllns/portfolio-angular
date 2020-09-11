@@ -9,9 +9,16 @@ export class InfoPaginaService {
 
   info: InfoPagina = {};
   cargada = false;
+  proyectos: any[] = [];
 
   constructor( private http: HttpClient ) {
 
+    this.cargarInfo();
+    this.cargarProyectos();
+
+  }
+
+  private cargarInfo(){
     // console.log('Servicio de info pag cargado');
 
     // Leer archivo JSON
@@ -20,9 +27,20 @@ export class InfoPaginaService {
 
           this.cargada = true;
           this.info = resp;
-          console.log(resp);
 
         });
-
   }
+
+  private cargarProyectos() {
+
+    this.http.get('https://angular-portfolio-fd1a9.firebaseio.com/proyectos.json')
+    .subscribe( (resp: any[]) => {
+
+          this.proyectos = resp;
+          console.log(this.proyectos);
+
+        });
+  }
+
+
 }
