@@ -37,7 +37,7 @@ export class InfoPaginaService {
     .subscribe( (resp: any[]) => {
 
           this.proyectos = resp;
-          console.log(this.proyectos);
+          // console.log(this.proyectos);
 
         });
   }
